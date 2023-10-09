@@ -12,6 +12,7 @@ public class PlayerController : MonoBehaviour
     private float zRangeTop = 13;
     private float zRangeBottom = -0.3f;
     public GameObject projectilePrefab;
+    public Transform projectileSpawnPoint;
     void Start()
     {
         
@@ -40,7 +41,7 @@ public class PlayerController : MonoBehaviour
         transform.Translate(Vector3.right * speed * Time.deltaTime * inputHorizontal);
         if(Input.GetKeyDown(KeyCode.Space))
         {
-            Instantiate(projectilePrefab, new Vector3(transform.position.x,1.5f,transform.position.z), projectilePrefab.transform.rotation);
+            Instantiate(projectilePrefab, projectileSpawnPoint.position, projectilePrefab.transform.rotation);
         }
     }
 }
