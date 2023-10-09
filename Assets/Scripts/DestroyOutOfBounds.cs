@@ -6,6 +6,7 @@ public class Destroy : MonoBehaviour
 {
     private float topBound = 30.0f;
     private float botBound = -10.0f;
+    private float sizeBound = 35.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,6 +21,11 @@ public class Destroy : MonoBehaviour
             Destroy(gameObject);
         } 
         if(transform.position.z < botBound)
+        {
+            Debug.Log("Game Over!!");
+            Destroy(gameObject);
+        }
+        if(transform.position.x > sizeBound || transform.position.x < -sizeBound)
         {
             Debug.Log("Game Over!!");
             Destroy(gameObject);
