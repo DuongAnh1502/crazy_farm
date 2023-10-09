@@ -1,10 +1,12 @@
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public int live = 3;
+    public int score = 0;
     private float speed = 15;
     private float inputHorizontal;
     private float inputVertical;
@@ -13,9 +15,9 @@ public class PlayerController : MonoBehaviour
     private float zRangeBottom = -0.3f;
     public GameObject projectilePrefab;
     public Transform projectileSpawnPoint;
+    // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame

@@ -2,15 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Destroy : MonoBehaviour
+public class DestroyOutOfBounds : MonoBehaviour
 {
     private float topBound = 30.0f;
     private float botBound = -10.0f;
     private float sizeBound = 35.0f;
+    private GameManager gameManager; 
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameManager = GameObject.Find("GameManager").GetComponent<GameManager>();
     }
 
     // Update is called once per frame
@@ -22,12 +23,12 @@ public class Destroy : MonoBehaviour
         } 
         if(transform.position.z < botBound)
         {
-            Debug.Log("Game Over!!");
+            gameManager.AddLives(-1);
             Destroy(gameObject);
         }
         if(transform.position.x > sizeBound || transform.position.x < -sizeBound)
         {
-            Debug.Log("Game Over!!");
+            gameManager.AddLives(-1);
             Destroy(gameObject);
         }
     }
