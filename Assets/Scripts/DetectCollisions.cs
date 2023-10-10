@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -26,6 +27,8 @@ public class DetectCollisions : MonoBehaviour
         } else if (other.CompareTag("Animal"))
         {
             other.GetComponent<AnimalHunger>().FeedAnimal(1);
+            Boolean a = other.GetComponent<Animator>().applyRootMotion;
+            Debug.Log(a);
             Destroy(gameObject);
         }
     }
